@@ -4,3 +4,8 @@ langchain
 python-dotenv
 scikit-learn
 pdfplumber
+gym
+numpy
+pandas
+stable-baselines3
+scikit-learn
