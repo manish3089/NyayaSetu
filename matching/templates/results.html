@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Top Lawyers Matching</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome for star icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9fbfd;
+            margin: 0;
+            padding: 0;
+            color: #202124;
+        }
+
+        header {
+            background-color: #007aff;
+            color: white;
+            padding: 20px 30px;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 2px 10px rgb(0 122 255 / 0.4);
+            user-select: none;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto 60px;
+            padding: 0 20px;
+        }
+
+        .domain-select {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        select, button, input[type="number"] {
+            font-size: 16px;
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 2px solid #007aff;
+            background-color: white;
+            color: #007aff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-width: 160px;
+        }
+
+        select:focus, button:focus, input[type="number"]:focus {
+            outline: none;
+            box-shadow: 0 0 8px #007aff;
+        }
+
+        button:hover {
+            background-color: #007aff;
+            color: white;
+        }
+
+        .error-message {
+            color: #d93025;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            width: 260px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgb(0 122 255 / 0.15);
+            padding: 25px 20px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgb(0 122 255 / 0.3);
+            cursor: pointer;
+        }
+
+        .card-header {
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 6px;
+            color: #004bb5;
+        }
+
+        .card-domain {
+            font-weight: 600;
+            font-size: 14px;
+            color: #007affcc;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .expertise {
+            font-weight: 500;
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: #1a73e8;
+        }
+
+        .rating {
+            color: #ffc107;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .charge {
+            font-weight: 600;
+            font-size: 16px;
+            color: #007aff;
+            margin-bottom: 20px;
+        }
+
+        .btn-book {
+            background-color: #007aff;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 12px 0;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 6px 15px rgb(0 122 255 / 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-book:hover {
+            background-color: #005ecb;
+        }
+
+        @media(max-width: 700px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Lawyer Matching - Find Your Best Advocate
+</header>
+
+<main>
+
+    <form method="POST" class="domain-select" autocomplete="off">
+        <select name="domain">
+            <option value="">All Domains</option>
+            {% for domain in domains %}
+                <option value="{{ domain }}" {% if selected_domain == domain %}selected{% endif %}>{{ domain }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="number" name="min_budget" placeholder="Min ₹/hr" value="{{ min_budget or '' }}">
+        <input type="number" name="max_budget" placeholder="Max ₹/hr" value="{{ max_budget or '' }}">
+
+        <button type="submit">Find Lawyers</button>
+    </form>
+
+    {% if error %}
+        <div class="error-message">{{ error }}</div>
+    {% endif %}
+
+    {% if results %}
+        <div class="cards">
+            {% for lawyer in results %}
+                <div class="card">
+                    <div class="card-header">{{ lawyer.name }}</div>
+                    <div class="card-domain">{{ lawyer.domain }}</div>
+                    <div class="expertise">Expertise Level: {{ lawyer.expertise }}</div>
+
+                    <div class="rating">
+                        {% for i in range(1, 6) %}
+                            {% if i <= lawyer.expertise %}
+                                <i class="fas fa-star"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="charge">Charge: ₹{{ lawyer.charge }}/hr</div>
+
+                    <button class="btn-book" onclick="bookConsultation('{{ lawyer.name }}')">Book Consultation</button>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p style="text-align:center; font-size:18px; color:#555;">No lawyers to display yet. Please select a domain and search.</p>
+    {% endif %}
+
+</main>
+
+<script>
+    function bookConsultation(lawyerName) {
+        alert('Booking consultation with ' + lawyerName + '.\n(This feature will be implemented soon!)');
+    }
+</script>
+
+</body>
+</html>
