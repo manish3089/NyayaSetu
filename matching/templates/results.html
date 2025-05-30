@@ -187,6 +187,11 @@
         <input type="number" name="min_budget" placeholder="Min ₹/hr" value="{{ min_budget or '' }}">
         <input type="number" name="max_budget" placeholder="Max ₹/hr" value="{{ max_budget or '' }}">
 
+        <select name="sort_order">
+            <option value="asc" {% if sort_order == 'asc' %}selected{% endif %}>Sort by Budget: Low to High</option>
+            <option value="desc" {% if sort_order == 'desc' %}selected{% endif %}>Sort by Budget: High to Low</option>
+        </select>
+
         <button type="submit">Find Lawyers</button>
     </form>
 
