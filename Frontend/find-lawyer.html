@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Find a Lawyer - LegalConnect</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/find-lawyer.css" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    </head>
+    <body>
+        <header class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <h1>LegalConnect</h1>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="find-lawyer.html" class="active"
+                                >Find Lawyer</a
+                            >
+                        </li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <a
+                                href="auth/Lawyer/lawyer-login.html"
+                                class="btn btn-small"
+                                >Login</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="auth/Lawyer/lawyer-signup.html"
+                                class="btn btn-primary btn-small"
+                                >Sign Up</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="search-hero">
+                <div class="container">
+                    <h2>Find the Right Lawyer for Your Needs</h2>
+                    <div class="search-bar">
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Search by name, specialization, or location"
+                        />
+                        <button id="search-button" class="btn btn-primary">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lawyer-search-section">
+                <div class="container">
+                    <div class="search-grid">
+                        <aside class="search-filters">
+                            <h3>Filters</h3>
+                            <div class="filter-group">
+                                <h4>Practice Area</h4>
+                                <div class="checkbox-group">
+                                    <label
+                                        ><input
+                                            type="checkbox"
+                                            name="practice"
+                                            value="family"
+                                        />
+                                        Family Law</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="checkbox"
+                                            name="practice"
+                                            value="criminal"
+                                        />
+                                        Criminal Defense</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="checkbox"
+                                            name="practice"
+                                            value="corporate"
+                                        />
+                                        Corporate Law</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="checkbox"
+                                            name="practice"
+                                            value="immigration"
+                                        />
+                                        Immigration</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="checkbox"
+                                            name="practice"
+                                            value="real-estate"
+                                        />
+                                        Real Estate</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="checkbox"
+                                            name="practice"
+                                            value="tax"
+                                        />
+                                        Tax Law</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="checkbox"
+                                            name="practice"
+                                            value="employment"
+                                        />
+                                        Employment Law</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="checkbox"
+                                            name="practice"
+                                            value="ip"
+                                        />
+                                        Intellectual Property</label
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h4>Experience</h4>
+                                <div class="radio-group">
+                                    <label
+                                        ><input
+                                            type="radio"
+                                            name="experience"
+                                            value="any"
+                                            checked
+                                        />
+                                        Any</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="radio"
+                                            name="experience"
+                                            value="1-5"
+                                        />
+                                        1-5 years</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="radio"
+                                            name="experience"
+                                            value="5-10"
+                                        />
+                                        5-10 years</label
+                                    >
+                                    <label
+                                        ><input
+                                            type="radio"
+                                            name="experience"
+                                            value="10+"
+                                        />
+                                        10+ years</label
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h4>Location</h4>
+                                <select id="location-filter">
+                                    <option value="">Any Location</option>
+                                    <option value="newyork">
+                                        New York, NY
+                                    </option>
+                                    <option value="los angeles">
+                                        Los Angeles, CA
+                                    </option>
+                                    <option value="chicago">Chicago, IL</option>
+                                    <option value="houston">Houston, TX</option>
+                                    <option value="miami">Miami, FL</option>
+                                </select>
+                            </div>
+
+                            <button
+                                id="apply-filters"
+                                class="btn btn-primary btn-block"
+                            >
+                                Apply Filters
+                            </button>
+                            <button
+                                id="reset-filters"
+                                class="btn btn-outline btn-block"
+                            >
+                                Reset
+                            </button>
+                        </aside>
+
+                        <div class="search-results">
+                            <div class="results-header">
+                                <h3>Results</h3>
+                                <div class="sort-options">
+                                    <label for="sort-by">Sort by:</label>
+                                    <select id="sort-by">
+                                        <option value="relevance">
+                                            Relevance
+                                        </option>
+                                        <option value="rating">Rating</option>
+                                        <option value="experience">
+                                            Experience
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="lawyers-list" class="lawyers-grid">
+                                <!-- Lawyer cards will be dynamically added here -->
+                                <div class="empty-state">
+                                    Loading lawyers...
+                                </div>
+                            </div>
+
+                            <div class="pagination">
+                                <button
+                                    class="pagination-btn"
+                                    id="prev-page"
+                                    disabled
+                                >
+                                    &laquo; Previous
+                                </button>
+                                <span id="page-indicator">Page 1 of 1</span>
+                                <button class="pagination-btn" id="next-page">
+                                    Next &raquo;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer" id="contact">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3>LegalConnect</h3>
+                        <p>
+                            Connecting clients with qualified legal
+                            professionals since 2022. Our platform aims to make
+                            legal help accessible to everyone.
+                        </p>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li>
+                                <a href="find-lawyer.html">Find a Lawyer</a>
+                            </li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contact Us</h3>
+                        <address>
+                            <p>123 Legal Avenue</p>
+                            <p>New York, NY 10001</p>
+                            <p>Email: info@legalconnect.com</p>
+                            <p>Phone: (123) 456-7890</p>
+                        </address>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>
+                        &copy; <span id="current-year"></span> LegalConnect. All
+                        rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/main.js"></script>
+        <script src="js/find-lawyer.js"></script>
+    </body>
+</html>
