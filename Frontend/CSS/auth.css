@@ -1,0 +1,148 @@
+/* Auth Pages Styles */
+.auth-section {
+  padding: var(--space-12) 0;
+  min-height: calc(100vh - var(--header-height) - var(--footer-min-height));
+  display: flex;
+  align-items: center;
+}
+
+.auth-card {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  animation: slideUp var(--transition-normal) ease-out;
+}
+
+.wide-card {
+  max-width: 650px;
+}
+
+.auth-header {
+  background-color: var(--color-primary-500);
+  color: white;
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.auth-header h2 {
+  color: white;
+  margin-bottom: 0;
+}
+
+.auth-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  margin: 0 auto var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-form {
+  padding: var(--space-6);
+}
+
+.input-icon-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--color-neutral-500);
+}
+
+.input-icon-wrapper input,
+.input-icon-wrapper select {
+  padding-left: var(--space-8);
+}
+
+.auth-links {
+  padding: 0 var(--space-6) var(--space-6);
+  text-align: center;
+  border-top: 1px solid var(--color-neutral-200);
+  padding-top: var(--space-4);
+}
+
+.auth-links p {
+  margin-bottom: var(--space-2);
+}
+
+.error-message {
+  background-color: var(--color-error-50);
+  color: var(--color-error-700);
+  padding: var(--space-3);
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: flex-start;
+  animation: fadeIn var(--transition-normal) ease-out;
+}
+
+.error-message:before {
+  content: '⚠️';
+  margin-right: var(--space-2);
+}
+
+/* Auth Icons */
+.lawyer-icon:before {
+  content: '👨‍⚖️';
+  font-size: 30px;
+}
+
+.user-icon:before {
+  content: '👤';
+  font-size: 30px;
+}
+
+.email-icon:before {
+  content: '✉️';
+  font-size: 16px;
+}
+
+.password-icon:before {
+  content: '🔒';
+  font-size: 16px;
+}
+
+.phone-icon:before {
+  content: '📱';
+  font-size: 16px;
+}
+
+.specialization-icon:before {
+  content: '📚';
+  font-size: 16px;
+}
+
+.experience-icon:before {
+  content: '⏱️';
+  font-size: 16px;
+}
+
+.location-icon:before {
+  content: '📍';
+  font-size: 16px;
+}
+
+/* Responsive Styles */
+@media (max-width: 640px) {
+  .auth-card {
+    max-width: 100%;
+    margin: 0 var(--space-4);
+  }
+  
+  .wide-card {
+    max-width: 100%;
+  }
+}
