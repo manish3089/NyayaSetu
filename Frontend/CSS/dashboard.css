@@ -1,0 +1,2380 @@
+/* General Body and Container Styling */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter as per instructions */
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scroll, content will scroll */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    border-radius: 10px; /* Rounded corners for the whole app */
+    overflow: hidden; /* Ensures child elements respect border-radius */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    border: 2px solid #007bff; /* Small border for profile pic */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.user-role {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.navigation {
+    flex-grow: 1; /* Allows navigation to take available space */
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation ul li {
+    margin-bottom: 10px;
+}
+
+.navigation ul li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #555;
+    text-decoration: none;
+    border-radius: 8px; /* Rounded corners for nav items */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navigation ul li a i {
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.navigation ul li a:hover,
+.navigation ul li.active a {
+    background-color: #e6f2ff;
+    color: #007bff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logout-section {
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+#logout-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px; /* Rounded corners for button */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logout-button i {
+    margin-right: 8px;
+}
+
+#logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top-right-radius: 10px;
+}
+
+#current-section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.search-bar {
+    position: relative;
+    width: 300px;
+    margin-left: auto; /* Pushes search bar to the right */
+    margin-right: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px 15px 8px 35px;
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Rounded corners for input */
+    font-size: 0.9em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: #007bff;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.topbar-icons i {
+    margin-left: 20px;
+    color: #555;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.topbar-icons i:hover {
+    color: #007bff;
+}
+
+.content-area {
+    padding: 25px;
+    flex-grow: 1;
+    overflow-y: auto; /* Enable scrolling for content area */
+    background-color: #f8f9fa;
+}
+
+/* Section Specific Styles */
+.section-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Dashboard Section */
+.dashboard-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-card .icon {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.summary-card .value {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.summary-card .label {
+    font-size: 1em;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dashboard-section-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+.dashboard-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.dashboard-section-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.4em;
+}
+
+.dashboard-section-header .view-all-button,
+.dashboard-section-header .view-calendar-button,
+.dashboard-section-header .add-task-button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-section-header .view-all-button:hover,
+.dashboard-section-header .view-calendar-button:hover,
+.dashboard-section-header .add-task-button:hover {
+    background-color: #0056b3;
+}
+
+/* Recent Cases Table (Dashboard) */
+.recent-cases-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-cases-table th,
+.recent-cases-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.recent-cases-table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+.recent-cases-table tr:last-child td {
+    border-bottom: none;
+}
+
+.recent-cases-table .status-active {
+    background-color: #e6ffe6;
+    color: #28a745;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.recent-cases-table .status-pending {
+    background-color: #fff3cd;
+    color: #ffc107;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.recent-cases-table .status-completed {
+    background-color: #e0f7fa;
+    color: #17a2b8;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+/* Find New Lawyer Section */
+.find-lawyer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.find-lawyer-section h3 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+#find-lawyer-canvas {
+    width: 200px; /* Smaller canvas for the 3D element */
+    height: 200px;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 50%; /* Make it circular */
+    border: 3px solid #007bff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+}
+
+#find-lawyer-canvas:hover {
+    transform: scale(1.05);
+}
+
+.find-lawyer-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px; /* Pill shape */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.find-lawyer-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.find-lawyer-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+/* My Cases Section */
+.cases-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* For rounded corners */
+}
+
+.cases-table th,
+.cases-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cases-table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+.cases-table .status-active {
+    background-color: #e6ffe6;
+    color: #28a745;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+.cases-table .status-pending {
+    background-color: #fff3cd;
+    color: #ffc107;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+.cases-table .status-completed {
+    background-color: #e0f7fa;
+    color: #17a2b8;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.cases-table .view-button {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.cases-table .view-button:hover {
+    background-color: #0056b3;
+}
+
+/* My Lawyers Section */
+.lawyer-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.lawyer-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.lawyer-card .lawyer-profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px auto;
+    border: 2px solid #007bff;
+}
+
+.lawyer-card h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.2em;
+}
+
+.lawyer-card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.lawyer-card .lawyer-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.lawyer-card .contact-button {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.lawyer-card .contact-button:hover {
+    background-color: #218838;
+}
+
+/* Messages Section */
+.messages-container {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 180px); /* Adjust height based on header/padding */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.message-list {
+    flex: 1;
+    border-right: 1px solid #eee;
+    overflow-y: auto;
+}
+
+.message-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.message-item:hover,
+.message-item.active {
+    background-color: #f6faff;
+}
+
+.message-item .profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.message-info {
+    flex-grow: 1;
+}
+
+.message-sender {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.message-preview {
+    font-size: 0.9em;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-time {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-left: 10px;
+}
+
+.message-chat-area {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+.chat-header .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5;
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.message-bubble.sent {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.message-bubble.received {
+    background-color: #e9e9eb;
+    color: #333;
+    align-self: flex-start;
+}
+
+.message-input-area {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.message-input-area input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 0.95em;
+    margin-right: 10px;
+}
+
+.message-input-area button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+}
+
+.message-input-area button:hover {
+    background-color: #0056b3;
+}
+
+/* My Documents Section */
+.documents-search-bar {
+    /* New style for documents search */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.documents-search-bar input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1em;
+    outline: none;
+}
+
+.documents-search-bar i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.document-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* Ensure text doesn't overflow */
+    word-wrap: break-word; /* Breaks long words */
+    overflow: hidden; /* Hides content that overflows */
+    text-overflow: ellipsis; /* Adds ellipsis for overflowing text */
+}
+
+.document-card i {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.document-card h4 {
+    margin: 10px 0 5px 0;
+    color: #333;
+    white-space: nowrap; /* Prevent title from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if title is too long */
+    width: 100%; /* Ensure it takes full width for ellipsis to work */
+}
+
+.document-card p {
+    font-size: 0.85em;
+    color: #777;
+    margin-bottom: 15px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    width: 100%;
+}
+
+.document-card .view-document-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.document-card .view-document-button:hover {
+    background-color: #5a6268;
+}
+
+/* Profile Section */
+.profile-details {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    max-width: 800px; /* Increased max-width for better layout */
+    margin: 0 auto;
+}
+
+.profile-details h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-field label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+
+.profile-field input[type="text"],
+.profile-field input[type="email"],
+.profile-field input[type="password"], /* Added for password */
+.profile-field input[type="tel"],
+.profile-field input[type="number"], /* Added for years of experience */
+.profile-field input[type="date"], /* Added for date input */
+.profile-field textarea,
+.profile-field select {
+    /* Added for select elements */
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.profile-field input:focus,
+.profile-field textarea:focus,
+.profile-field select:focus {
+    border-color: #007bff;
+}
+
+.profile-field textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px;
+}
+
+.profile-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.profile-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.profile-buttons .save-button {
+    background-color: #007bff;
+    color: white;
+}
+.profile-buttons .save-button:hover {
+    background-color: #0056b3;
+}
+
+.profile-buttons .cancel-button {
+    background-color: #6c757d;
+    color: white;
+}
+.profile-buttons .cancel-button:hover {
+    background-color: #5a6268;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Could be responsive */
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-height: 90vh; /* Allow more height for forms */
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #007bff;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: calc(100% - 24px); /* Adjust for padding */
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.uploaded-file-name {
+    font-size: 0.85em;
+    color: #777;
+    margin-top: 5px;
+    display: block;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.modal-actions .save-button {
+    background-color: #007bff;
+    color: white;
+}
+.modal-actions .save-button:hover {
+    background-color: #0056b3;
+}
+
+.modal-actions .cancel-button {
+    background-color: #6c757d;
+    color: white;
+}
+.modal-actions .cancel-button:hover {
+    background-color: #5a6268;
+}
+
+/* Modal for Document Content - ensure content wraps and is readable */
+#modal-case-details p {
+    word-wrap: break-word; /* Allows long words to break and wrap */
+    white-space: normal; /* Ensures text wraps normally */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-radius: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar .user-profile {
+        display: none; /* Hide profile in smaller screens to save space */
+    }
+
+    .sidebar .navigation ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sidebar .navigation ul li {
+        margin: 5px;
+    }
+
+    .sidebar .navigation ul li a {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .sidebar .logo {
+        margin-bottom: 15px;
+    }
+
+    .logout-section {
+        border-top: none;
+        padding-top: 0;
+    }
+    #logout-button {
+        width: auto;
+        padding: 8px 15px;
+        margin-top: 10px;
+    }
+
+    .main-content {
+        border-radius: 0;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    #current-section-title {
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .topbar-icons {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+
+    .topbar-icons i {
+        margin-left: 15px;
+    }
+
+    .content-area {
+        padding: 15px;
+    }
+
+    .dashboard-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .messages-container {
+        height: calc(100vh - 250px); /* Adjust height for smaller screens */
+        flex-direction: column;
+    }
+
+    .messages-container .message-list {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        min-height: 150px; /* Ensure list is visible */
+        max-height: 30vh; /* Limit height for list */
+    }
+
+    .messages-container .message-chat-area {
+        height: auto; /* Allow chat area to expand */
+    }
+
+    .lawyer-cards,
+    .documents-grid {
+        grid-template-columns: 1fr; /* Single column for cards on small screens */
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr; /* Single column for profile fields on small screens */
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+/* 
+
+
+
+                            LAWYER CSS
+
+
+
+*/
+
+/* General Body and Container Styling */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter as per instructions */
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scroll, content will scroll */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    border-radius: 10px; /* Rounded corners for the whole app */
+    overflow: hidden; /* Ensures child elements respect border-radius */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    border: 2px solid #007bff; /* Small border for profile pic */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.user-role {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.navigation {
+    flex-grow: 1; /* Allows navigation to take available space */
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation ul li {
+    margin-bottom: 10px;
+}
+
+.navigation ul li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #555;
+    text-decoration: none;
+    border-radius: 8px; /* Rounded corners for nav items */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navigation ul li a i {
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.navigation ul li a:hover,
+.navigation ul li.active a {
+    background-color: #e6f2ff;
+    color: #007bff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logout-section {
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+#logout-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px; /* Rounded corners for button */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logout-button i {
+    margin-right: 8px;
+}
+
+#logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top-right-radius: 10px;
+}
+
+#current-section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.search-bar {
+    position: relative;
+    width: 300px;
+    margin-left: auto; /* Pushes search bar to the right */
+    margin-right: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px 15px 8px 35px;
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Rounded corners for input */
+    font-size: 0.9em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: #007bff;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.topbar-icons i {
+    margin-left: 20px;
+    color: #555;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.topbar-icons i:hover {
+    color: #007bff;
+}
+
+.content-area {
+    padding: 25px;
+    flex-grow: 1;
+    overflow-y: auto; /* Enable scrolling for content area */
+    background-color: #f8f9fa;
+}
+
+/* Section Specific Styles */
+.section-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Dashboard Section */
+.dashboard-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-card .icon {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.summary-card .value {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.summary-card .label {
+    font-size: 1em;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dashboard-section-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+.dashboard-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.dashboard-section-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.4em;
+}
+
+.dashboard-section-header .view-all-button,
+.dashboard-section-header .view-calendar-button,
+.dashboard-section-header .add-task-button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-section-header .view-all-button:hover,
+.dashboard-section-header .view-calendar-button:hover,
+.dashboard-section-header .add-task-button:hover {
+    background-color: #0056b3;
+}
+
+/* Recent Cases Table (Dashboard) */
+.recent-cases-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-cases-table th,
+.recent-cases-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.recent-cases-table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+.recent-cases-table tr:last-child td {
+    border-bottom: none;
+}
+
+.recent-cases-table .status-active {
+    background-color: #e6ffe6;
+    color: #28a745;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.recent-cases-table .status-pending {
+    background-color: #fff3cd;
+    color: #ffc107;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.recent-cases-table .status-completed {
+    background-color: #e0f7fa;
+    color: #17a2b8;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+/* Today's Schedule (Dashboard) */
+.schedule-list .schedule-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.schedule-list .schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-list .schedule-time {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.schedule-list .schedule-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.schedule-list .schedule-description {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Tasks (Dashboard) */
+.task-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.task-list li:last-child {
+    border-bottom: none;
+}
+
+.task-list input[type='checkbox'] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Make checkbox a bit larger */
+}
+
+.task-list span.task-text {
+    flex-grow: 1;
+    font-size: 1em;
+    color: #333;
+}
+
+.task-list span.task-text.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-list .task-date {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-left: 10px;
+}
+
+.task-list .task-actions button {
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.task-list .task-actions button:hover {
+    color: #007bff;
+}
+
+/* Cases Section - Tabs */
+.cases-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cases-tab-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    color: #555;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 5px;
+}
+
+.cases-tab-button:hover {
+    background-color: #e2e6ea;
+}
+
+.cases-tab-button.active {
+    background-color: #ffffff;
+    border-color: #ddd;
+    border-bottom-color: transparent;
+    color: #007bff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.cases-content-area {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Request from User Table */
+.request-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.request-table th,
+.request-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.request-table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.request-table .view-request-button,
+.request-table .view-document-request-button, /* New button */
+.request-table .summarize-document-button {
+    /* New button */
+    background-color: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    margin-right: 5px; /* Spacing between buttons */
+}
+.request-table .summarize-document-button {
+    background-color: #6c757d; /* Grey for summarize */
+}
+
+.request-table .view-request-button:hover,
+.request-table .view-document-request-button:hover {
+    background-color: #0056b3;
+}
+.request-table .summarize-document-button:hover {
+    background-color: #5a6268;
+}
+
+/* My Cases Table */
+.my-cases-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.my-cases-table th,
+.my-cases-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.my-cases-table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+.my-cases-table .status-active {
+    background-color: #e6ffe6;
+    color: #28a745;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+.my-cases-table .status-pending {
+    background-color: #fff3cd;
+    color: #ffc107;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+.my-cases-table .status-completed {
+    background-color: #e0f7fa;
+    color: #17a2b8;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.my-cases-table .view-button {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.my-cases-table .view-button:hover {
+    background-color: #0056b3;
+}
+
+/* Clients Section */
+.client-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.client-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.client-card .client-profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px auto;
+    border: 2px solid #007bff;
+}
+
+.client-card h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.2em;
+}
+
+.client-card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.client-card .client-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.client-card .contact-button,
+.client-card .details-button {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.client-card .contact-button:hover {
+    background-color: #218838;
+}
+
+.client-card .details-button {
+    background-color: #6c757d;
+}
+
+.client-card .details-button:hover {
+    background-color: #5a6268;
+}
+
+.client-search-bar {
+    /* New style for client-specific search */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.client-search-bar input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1em;
+    outline: none;
+}
+
+.client-search-bar i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+/* Calendar Section */
+.calendar-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.calendar-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.calendar-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.calendar-item-details {
+    flex-grow: 1;
+}
+
+.calendar-item-details .time {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.calendar-item-details .title {
+    font-weight: bold;
+    color: #333;
+}
+
+.calendar-item-details .description {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.calendar-item-actions button {
+    background-color: #6c757d;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.calendar-item-actions button:hover {
+    background-color: #5a6268;
+}
+
+/* Messages Section */
+.messages-container {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 180px); /* Adjust height based on header/padding */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.message-list {
+    flex: 1;
+    border-right: 1px solid #eee;
+    overflow-y: auto;
+}
+
+.message-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.message-item:hover,
+.message-item.active {
+    background-color: #f6faff;
+}
+
+.message-item .profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.message-info {
+    flex-grow: 1;
+}
+
+.message-sender {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.message-preview {
+    font-size: 0.9em;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-time {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-left: 10px;
+}
+
+.message-chat-area {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+.chat-header .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5;
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.message-bubble.sent {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.message-bubble.received {
+    background-color: #e9e9eb;
+    color: #333;
+    align-self: flex-start;
+}
+
+.message-input-area {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.message-input-area input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 0.95em;
+    margin-right: 10px;
+}
+
+.message-input-area button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+}
+
+.message-input-area button:hover {
+    background-color: #0056b3;
+}
+
+/* My Documents Section */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.document-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.document-card i {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.document-card h4 {
+    margin: 10px 0 5px 0;
+    color: #333;
+}
+
+.document-card p {
+    font-size: 0.85em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.document-card .view-document-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.document-card .view-document-button:hover {
+    background-color: #5a6268;
+}
+
+/* Profile Section */
+.profile-details {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    max-width: 800px; /* Increased max-width for better layout */
+    margin: 0 auto;
+}
+
+.profile-details h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-field label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+
+.profile-field input[type="text"],
+.profile-field input[type="email"],
+.profile-field input[type="password"], /* Added for password */
+.profile-field input[type="tel"],
+.profile-field input[type="number"], /* Added for years of experience */
+.profile-field input[type="date"], /* Added for date input */
+.profile-field textarea {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.profile-field input:focus,
+.profile-field textarea:focus {
+    border-color: #007bff;
+}
+
+.profile-field textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px;
+}
+
+.profile-buttons {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.profile-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.profile-buttons .save-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.profile-buttons .save-button:hover {
+    background-color: #0056b3;
+}
+
+.profile-buttons .cancel-button {
+    background-color: #6c757d;
+    color: white;
+}
+.profile-buttons .cancel-button:hover {
+    background-color: #5a6268;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Could be responsive */
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #007bff;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+#modal-case-details p,
+#modal-request-details p,
+#modal-document-content p,
+#modal-document-summary-content p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+}
+
+.modal-actions .accept-button {
+    background-color: #28a745;
+    color: white;
+}
+.modal-actions .accept-button:hover {
+    background-color: #218838;
+}
+
+.modal-actions .decline-button {
+    background-color: #dc3545;
+    color: white;
+}
+.modal-actions .decline-button:hover {
+    background-color: #c82333;
+}
+
+.modal-actions .save-button {
+    background-color: #007bff;
+    color: white;
+}
+.modal-actions .save-button:hover {
+    background-color: #0056b3;
+}
+
+.modal-actions .cancel-button {
+    background-color: #6c757d;
+    color: white;
+}
+.modal-actions .cancel-button:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-radius: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar .user-profile {
+        display: none; /* Hide profile in smaller screens to save space */
+    }
+
+    .sidebar .navigation ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sidebar .navigation ul li {
+        margin: 5px;
+    }
+
+    .sidebar .navigation ul li a {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .sidebar .logo {
+        margin-bottom: 15px;
+    }
+
+    .logout-section {
+        border-top: none;
+        padding-top: 0;
+    }
+    #logout-button {
+        width: auto;
+        padding: 8px 15px;
+        margin-top: 10px;
+    }
+
+    .main-content {
+        border-radius: 0;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    #current-section-title {
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .topbar-icons {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+
+    .topbar-icons i {
+        margin-left: 15px;
+    }
+
+    .content-area {
+        padding: 15px;
+    }
+
+    .dashboard-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cases-tabs {
+        flex-wrap: wrap;
+    }
+
+    .cases-tab-button {
+        flex-grow: 1;
+        margin-bottom: 5px;
+    }
+
+    .messages-container {
+        height: calc(100vh - 250px); /* Adjust height for smaller screens */
+        flex-direction: column;
+    }
+
+    .messages-container .message-list {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        min-height: 150px; /* Ensure list is visible */
+        max-height: 30vh; /* Limit height for list */
+    }
+
+    .messages-container .message-chat-area {
+        height: auto; /* Allow chat area to expand */
+    }
+
+    .client-cards,
+    .documents-grid {
+        grid-template-columns: 1fr; /* Single column for cards on small screens */
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr; /* Single column for profile fields on small screens */
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+}
